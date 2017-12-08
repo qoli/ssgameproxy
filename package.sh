@@ -1,3 +1,3 @@
-rm ssgameproxy.tar.gz
+rm ssrproxy.tar.gz
 find . -name '*.DS_Store' -type f -delete
-tar -zcvf ssgameproxy.tar.gz ssgameproxy/
+tar -zcvf ssrproxy.tar.gz ssrproxy/
