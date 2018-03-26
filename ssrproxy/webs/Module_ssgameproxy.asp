@@ -21,7 +21,7 @@
 		<script>
 		var submitDatas = {};
 		submitDatas["action_mode"] = " Refresh ";
-		submitDatas["SystemCmd"] = "ssgameproxy.sh";
+		submitDatas["SystemCmd"] = "ssrproxy.sh";
 		submitDatas["current_page"] = "Module_ssgameproxy.asp";
 		submitDatas["ssgameproxy_request"] = 00;
 		function init() {
@@ -31,12 +31,12 @@
 
 		function onClick() {
 			submitData("switch")
-			setTimeout(getDataStatus,1000);
+			setTimeout(getDataStatus,3000);
 		}
 
 		function onCP() {
 			submitData("cp")
-			setTimeout(getDataStatus,1000);
+			setTimeout(getDataStatus,3000);
 		}
 
 		function submitData(r) {
@@ -49,7 +49,7 @@
 				success: function(data) {
 					console.log(data)
 					console.log(submitDatas["ssgameproxy_request"])
-					$("#info").html("通信中……");
+					$("#info").html("通信中……"+r);
 				},
 				error: function() {
 					$("#info").html("與 applydb 通信錯誤");
@@ -136,13 +136,14 @@
 											<div style="margin-left:5px;margin-top:10px;margin-bottom:10px"><img src="/images/New_ui/export/line_export.png"></div>
 											<div id="NoteBox">
 												
-<h2>簡單操作說明</h2>
+<h2>獨立的代理設定</h2>
+<h3>簡單操作說明</h3>
 <h3>流程：</h3>
 <p></p>
-<ol><li>在「科學上網」工具下，設定用於遊戲使用的 SS 并連接。</li>
-<li>在「ssgameproxy」工具，點擊「複製配置」按鈕。</li>
-<li>在「科學上網」下，使用日常非遊戲使用的 SS。</li>
-<li>回來「ssgameproxy」工具，點擊「啟動或關閉」按鈕。</li>
+<ol><li>在「科學上網」工具下，連接將要用於「SSProxy」的代理。</li>
+<li>在「SSProxy」工具，點擊「複製配置」按鈕。</li>
+<li>在「科學上網」下，可以使用你喜歡的代理了。</li>
+<li>回來「SSProxy」工具，點擊「啟動或關閉」按鈕。</li>
 </ol>
 <div>代理可用於 PS4 或其他可指定 Socks5 代理的軟體和遊戲<br />
 驗證代理是否成功，可訪問 ip111.cn</div>
@@ -150,9 +151,11 @@
 <p>192.168.1.1:5500</p>
 <h3>HTTP 代理：</h3>
 <p>192.168.1.1:5501</p>
-<h3>備註：</h3>
+<h4>備註：</h4>
 <div>PS4 需要使用 http 代理</div>
-<div>socks5 代理是基於 ss-local 的 ACL 配置以實現<b>大陸白遊戲模式</b>的智能分流。</div>
+<div>socks5 代理是基於 ss-local 的 ACL 配置以實現大陸白遊戲模式的智能分流。</div>
+<div><h4>terminal.app Proxy 設定模板</h4>
+<pre>export https_proxy=http://192.168.1.1:5501;export http_proxy=http://192.168.1.1:5501</pre> </div>
 
 											</div>
 											

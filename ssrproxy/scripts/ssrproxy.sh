@@ -55,6 +55,7 @@ stop)
     ;;
 cp)
     cp_config
+    echo 'cp'
     ;;
 read)
     echo $ssgameproxy_enable
